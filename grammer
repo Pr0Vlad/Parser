@@ -1,36 +1,34 @@
-# 1:     program-->declaration-list
-# 2:     declaration-list-->declaration declaration-list'
-# 3:     declaration-list'-->declaration declaration-list' | empty
-# 4:     declaration-->var-declaration | fun-declaration
-# 5:     var-declaration-->type-specifier id ; | type-specifier id [ num ]
-# 6:     type-specifier-->int | void
-# 7:     fun-declaration--> type-specifier id ( params ) compound-stmt
-# 8:     params-->param-list | void
-# 9:     param-list-->param param-list'
-# 10:    param-list'-->, param param-list' | empty
-# 11:    param--> type-specifier id | type-specifier id [ ]
-# 12:    compound-stmt-->{ local-declarations statement-list }
-# 13:    local-declarations-->local-declarations'
-# 14:    local-declarations'-->var-declaration local-declarations' | empty
-# 15:    statement-list--> statement-list'
-# 16:    statement-list'-->statement statment-list' | empty
-# 17:    statement-->expression-stmt | compound-stmt | selection-stmt | iteration-stmt | return-stmt
-# 18:    expression-stmt-->expression ; | ;
-# 19:    selection-stmt-->if ( expression ) statement | if ( expression ) statement else statement
-# 20:    iteration-stmt-->while ( expression ) statement
-# 21:    return-stmt--> return ; | return expression ;
-# 22:    expression-->var = expression | simple expression
-# 23:    var-->id | id [ expression ]
-# 24:    simple-expression--> additive-expression relop additive-expression | additive-expression
-# 25:    relop--> <= | < | > | >= | == | !=
-# 26:    additive-expression--> term additive-expression'
-# 27:    additive-expression'--> addop term additive-expression' | empty
-# 28:    addop--> + | -
-# 29:    term--> factor term'
-# 30:    term'--> mulop factor term' | empty
-# 31:    mulop--> * | /
-# 32:    factor-->( expression ) | var | call | num
-# 33:    call-->id ( args )
-# 34:    args--> arg-list | empty
-# 35:    arg-list--> expression arg-list'
-# 36:    arg-list'-->, expression arg-list' | empty
+1. program >> declaration-list
+2. declaration-list >> declaration declaration-list' 
+3. declaration-list'>> declaration declaration-list' | $ 
+4. declaration >> var-declaration | fun-declaration
+5. var-declaration >> type-specifier ID ; | type-specifier ID [ NUM] ; 
+6. type-specifier >> int | void | float
+7. fun-declaration >> type-specifier ID ( params ) compound-stmt
+8. params >> param-list | void 
+9. param-list >> param param-list’
+10. param-list’ >> , param param-list’ | $
+11. param >> type-specifier ID | type-specifier ID [  ]
+12. compound-stmt >> { local-declarations statement-list } 
+13. local-declaration >>  var-declaration local-declaration | $
+14. statement-list >> statement statement-list | $
+15. statement >> expression-stmt | compound-stmt | selection-stmt | iteration-stmt | return-stmt
+16. expression-stmt >> expression ; | ; 
+17. selection-stmt >> if ( expression ) statement | if ( expression ) statement else statement 
+18. iteration-stmt >> while ( expression ) statement
+19. return-stmt >> return ; | return expression ; 
+20.expression >> var = expression | simple-expression
+21. var >> ID | ID [ expression ] 
+22. simple-expression >> additive-expression relop additive-expression | additive expression
+23. relop >> <= | < | > | >= | == | !=
+24. additive-expression >> term additive-expression’ 
+25. additive-expression’ >> addop term additive-expression’ | $
+26. addop >> + | -
+27. term >> factor term’
+28. term’ >> mulop factor term’| $
+29. mulop >> * | /
+30. factor >> ( expression ) | var | call | NUM
+31. call >> ID ( args )
+32. args >> arg-list | $
+33. arg-list >> expression arg-list’
+34. arg-list’ >> , expression arg-list’ | $
